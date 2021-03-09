@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const { port, mongoURI } = require('./config')
 const transactionsRoutes = require('./routes/transactions')
 const path = require('path')
+
 app.use(cors())
 app.use(bodyParser.json())
 app.use(morgan('tiny'))
