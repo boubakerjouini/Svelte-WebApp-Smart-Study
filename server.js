@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const { port, mongoURI } = require('./config')
 const transactionsRoutes = require('./routes/transactions')
+const formsRoutes = require('./routes/forms')
 const path = require('path')
 
 app.use(cors())
@@ -22,6 +23,8 @@ mongoose
     .catch((err) => console.log(err))
 
 app.use('/api/transactions', transactionsRoutes)
+app.use('/api/forms', formsRoutes)
+
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/public'))
