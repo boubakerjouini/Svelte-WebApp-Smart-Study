@@ -53,7 +53,7 @@
   }
 
   async function addForm() {
-    question.push([questiona, typea]);
+    question.push([questiona, typea]); 
     const transaction = {
       nom: nomForm,
       question: question,
@@ -86,22 +86,28 @@
       bind:value={questiona[i]}
       placeholder="Question"
     />
+   
     <input class="input" type="text" bind:value={typea[i]} placeholder="Type" />
 	<select bind:value={selection}>
 		{#each typeb as typeb}
 			<option value={typeb}>
 				{typeb.text}
 			</option>
+      <p>selected {selection ? selection.id : '[waiting...]'}</p>
+
+  
 		{/each}
+
+   <!-- {#if selection}
+    {#if selection.id == 1}
+    
+  {/if}
+{/if} -->
+
+
 	</select>
   {/each}
-  <p>selected {selection ? selection.id : '[waiting...]'}</p>
-
-  {#if selection}
-  	{#if selection.id == 1}
-		<p>plzzzz</p>
-	{/if}
-{/if}
+ 
 
   <button on:click={handleClick}>
     Clicked {nbchamps}
